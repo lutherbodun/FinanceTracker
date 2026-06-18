@@ -1,0 +1,80 @@
+.appShell {
+  min-height: 100vh;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px clamp(16px, 4vw, 32px);
+  background: rgba(15, 23, 42, 0.78);
+  border-bottom: 1px solid var(--cardBorder);
+  backdrop-filter: blur(14px);
+}
+
+:root[data-theme='light'] .topbar {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.brandMark {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+  background: #111827;
+  border: 1px solid var(--cardBorder);
+  box-shadow: 0 10px 24px var(--shadow);
+}
+
+.brandText {
+  color: var(--text);
+}
+
+.main {
+  padding: 28px 16px;
+}
+
+.dashboardShell {
+  background: var(--bg0);
+}
+
+.dashboardMain {
+  padding: 0;
+}
+
+.themeToggle {
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid var(--inputBorder);
+  background: var(--inputBg);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.themeToggle:hover {
+  filter: brightness(1.03);
+}
+
+.themeToggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.24);
+}
+
+.themeToggle:active {
+  transform: scale(0.98);
+}
+

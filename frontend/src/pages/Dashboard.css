@@ -1,0 +1,1887 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght@500&display=swap');
+
+:root {
+  --app-bg: #f7f7f6;
+  --app-panel: #ffffff;
+  --app-sidebar: #efefee;
+  --app-text: #1c2230;
+  --app-muted: #8b96a8;
+  --app-line: #e8e8e6;
+  --app-primary: #3e3f3f;
+  --app-secondary: #777a7c;
+  --app-accent: #8a8f7a;
+  --app-accent-2: #6f7468;
+  --app-success: #607064;
+  --app-danger: #806060;
+  --app-warning: #81715f;
+  --app-shadow: 0 18px 48px rgba(34, 40, 49, 0.08);
+}
+
+:root[data-theme='dark'] {
+  --app-bg: #191729;
+  --app-panel: #211f34;
+  --app-sidebar: #171526;
+  --app-text: #f7f4fb;
+  --app-muted: #8e899f;
+  --app-line: #302d45;
+  --app-primary: #dad7df;
+  --app-secondary: #a9a3b5;
+  --app-accent: #9a9f8b;
+  --app-accent-2: #777c70;
+  --app-success: #6f806f;
+  --app-danger: #886969;
+  --app-warning: #8a7b68;
+  --app-shadow: 0 20px 54px rgba(0, 0, 0, 0.22);
+}
+
+.magloApp {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  background: var(--app-bg);
+  color: var(--app-text);
+  font-family: Sora, system-ui, sans-serif;
+}
+
+.magloSidebar {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  padding: 30px 24px;
+  background: var(--app-sidebar);
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.magloBrand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+}
+
+.magloBrand img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.magloNav,
+.sidebarFooter {
+  display: grid;
+  gap: 14px;
+}
+
+.sidebarFooter {
+  margin-top: auto;
+}
+
+.magloNav button,
+.sidebarFooter button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--app-muted);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 16px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.magloNav button:hover,
+.sidebarFooter button:hover {
+  color: var(--app-text);
+  background: color-mix(in srgb, var(--app-primary), transparent 92%);
+}
+
+.magloNav button.active {
+  background: var(--app-accent);
+  color: #171a20;
+}
+
+.magloNav button:active,
+.sidebarFooter button:active,
+button:active {
+  transform: scale(0.98);
+}
+
+.magloMain {
+  min-width: 0;
+  padding: 30px 40px 44px;
+}
+
+.magloTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 34px;
+}
+
+.magloTop h1 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.topActions > button {
+  border: 0;
+  background: transparent;
+  color: var(--app-muted);
+  cursor: pointer;
+}
+
+.profileWrap {
+  position: relative;
+}
+
+.profileChip {
+  min-height: 48px;
+  padding: 4px 14px 4px 6px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--app-panel), transparent 8%) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--app-text) !important;
+}
+
+.profileChip > span:first-child {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--app-primary);
+  color: var(--app-panel);
+  font-weight: 800;
+}
+
+.profileMenu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  min-width: 176px;
+  border: 1px solid var(--app-line);
+  border-radius: 8px;
+  background: var(--app-panel);
+  box-shadow: var(--app-shadow);
+  padding: 8px;
+  z-index: 20;
+}
+
+.profileMenu button {
+  width: 100%;
+  min-height: 42px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--app-text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.profileMenu button:hover {
+  background: color-mix(in srgb, var(--app-primary), transparent 92%);
+}
+
+.magloNotice {
+  border: 1px solid var(--app-line);
+  background: var(--app-panel);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  box-shadow: var(--app-shadow);
+}
+
+.dashboardLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 354px;
+  gap: 40px;
+}
+
+.dashboardCenter,
+.pageStack {
+  display: grid;
+  gap: 30px;
+}
+
+.metricRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.metricBox,
+.chartCard,
+.tableCard,
+.settingsCard,
+.sideCard,
+.balanceCard,
+.paymentsPanel {
+  background: var(--app-panel);
+  border: 1px solid var(--app-line);
+  border-radius: 10px;
+  box-shadow: var(--app-shadow);
+}
+
+.metricBox {
+  min-height: 106px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px;
+}
+
+.metricBox.featured {
+  background: var(--app-primary);
+  color: var(--app-panel);
+}
+
+.metricBox > span {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--app-secondary), transparent 86%);
+  color: var(--app-accent);
+}
+
+.metricBox p {
+  margin: 0 0 6px;
+  color: var(--app-muted);
+}
+
+.metricBox strong {
+  font-size: 26px;
+}
+
+.chartCard,
+.tableCard,
+.settingsCard {
+  padding: 26px 26px 30px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.sectionHeader h2,
+.dashboardAside h2,
+.paymentsPanel h2 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.sectionHeader p {
+  margin: 5px 0 0;
+  color: var(--app-muted);
+}
+
+.sectionHeader button,
+.linkAction {
+  border: 0;
+  background: transparent;
+  color: var(--app-success);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--app-secondary);
+  font-size: 13px;
+}
+
+.legend span,
+.legend i {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #26785f;
+}
+
+.legend i {
+  background: #9f4a4a;
+}
+
+.chartMock {
+  position: relative;
+  min-height: 232px;
+}
+
+.chartMock svg {
+  width: 100%;
+  min-height: 220px;
+}
+
+.gridLine {
+  stroke: var(--app-line);
+  stroke-width: 1;
+}
+
+.incomeLine,
+.expenseLine {
+  fill: none;
+  stroke-width: 2.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.incomeLine {
+  stroke: #26785f;
+}
+
+.expenseLine {
+  stroke: #9f4a4a;
+}
+
+.incomeDot {
+  fill: #26785f;
+  stroke: var(--app-panel);
+  stroke-width: 2;
+  r: 3;
+}
+
+.expenseDot {
+  fill: #9f4a4a;
+  stroke: var(--app-panel);
+  stroke-width: 2;
+  r: 3;
+}
+
+.axisLabel,
+.dateLabel {
+  fill: var(--app-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dateLabel {
+  text-anchor: middle;
+}
+
+.chartSummary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: var(--app-secondary);
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 6px;
+}
+
+.chartMock .incomeDot,
+.chartMock .expenseDot {
+  opacity: 0.9;
+}
+
+.chartSummary span:first-child {
+  color: #26785f;
+}
+
+.chartSummary span:last-child {
+  color: #9f4a4a;
+}
+
+.emptyChart {
+  min-height: 240px;
+  border: 1px dashed var(--app-line);
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--app-muted);
+  padding: 24px;
+}
+
+.emptyChart p {
+  margin: 0;
+  max-width: 320px;
+}
+
+.dashboardAside {
+  display: grid;
+  align-content: start;
+  gap: 20px;
+}
+
+.cardStack {
+  position: relative;
+  min-height: 322px;
+}
+
+.cardStack.large {
+  max-width: 356px;
+}
+
+.bankCard {
+  min-height: 208px;
+  border-radius: 14px;
+  padding: 28px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #404040, #1f1f1e);
+  display: grid;
+  align-content: space-between;
+  box-shadow: var(--app-shadow);
+}
+
+.bankCard.floating {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 110px;
+  min-height: 172px;
+  background: linear-gradient(135deg, rgba(250,250,248,0.78), rgba(64,64,64,0.54));
+  color: #20242c;
+  backdrop-filter: blur(18px);
+}
+
+.bankCard div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bankCard span,
+.bankCard small {
+  opacity: 0.72;
+}
+
+.bankCard b {
+  font-size: 21px;
+  letter-spacing: 0.1em;
+}
+
+.bankCard em {
+  justify-self: end;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.dataTable {
+  overflow-x: auto;
+}
+
+.dataTable table {
+  min-width: 780px;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.dataTable th,
+.dataTable td {
+  text-align: left;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--app-line);
+}
+
+.dataTable th {
+  color: var(--app-muted);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.dataTable td small {
+  display: block;
+  margin-top: 4px;
+  color: var(--app-muted);
+}
+
+.dataTable td,
+.dataTable th {
+  overflow-wrap: anywhere;
+}
+
+.invoiceDataTable table {
+  min-width: 660px;
+}
+
+.invoiceDataTable th:nth-child(1),
+.invoiceDataTable td:nth-child(1) {
+  width: 24%;
+}
+
+.invoiceDataTable th:nth-child(2),
+.invoiceDataTable td:nth-child(2) {
+  width: 15%;
+}
+
+.invoiceDataTable th:nth-child(3),
+.invoiceDataTable td:nth-child(3) {
+  width: 13%;
+}
+
+.invoiceDataTable th:nth-child(4),
+.invoiceDataTable td:nth-child(4),
+.invoiceDataTable th:nth-child(5),
+.invoiceDataTable td:nth-child(5) {
+  width: 13%;
+}
+
+.invoiceDataTable th:nth-child(6),
+.invoiceDataTable td:nth-child(6) {
+  width: 22%;
+}
+
+.invoiceDataTable th,
+.invoiceDataTable td {
+  padding: 6px 0;
+  vertical-align: middle;
+}
+
+.invoiceDataTable .entity {
+  min-width: 0;
+}
+
+.invoiceDataTable .entity div {
+  min-width: 0;
+}
+
+.invoiceDataTable .entity strong,
+.invoiceDataTable .entity small {
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.invoiceDataTable .entity {
+  gap: 10px;
+}
+
+.invoiceDataTable .entity > span {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+.invoiceDataTable .entity strong {
+  font-size: 14px;
+}
+
+.invoiceDataTable .entity small,
+.invoiceDataTable td small {
+  font-size: 12px;
+}
+
+.invoiceDataTable .rowActions {
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.invoiceDataTable .miniTextButton {
+  min-height: 28px;
+  padding: 0 7px;
+  font-size: 11px;
+}
+
+.invoiceDataTable .status {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.entity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.entity > span,
+.paymentItem > span {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--app-secondary), transparent 88%);
+  font-weight: 900;
+}
+
+.entity strong,
+.entity small {
+  display: block;
+}
+
+.moneyCell {
+  font-weight: 800;
+}
+
+.smallButton,
+.quickForm button,
+.sendButton,
+.ghostAction {
+  min-height: 46px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 20px;
+  background: var(--app-accent);
+  color: #171a20;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.dotsButton {
+  border: 0;
+  background: transparent;
+  color: var(--app-success);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.rowActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.miniTextButton {
+  min-height: 34px;
+  border: 1px solid var(--app-line);
+  border-radius: 7px;
+  background: var(--app-panel);
+  color: var(--app-success);
+  padding: 0 10px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.miniTextButton.danger {
+  color: var(--app-danger);
+}
+
+.miniTextButton:disabled {
+  opacity: 0.44;
+  cursor: not-allowed;
+}
+
+.transactionActions {
+  flex-wrap: wrap;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.searchBox,
+.plainSearch {
+  width: min(336px, 100%);
+  min-height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  background: color-mix(in srgb, var(--app-panel), var(--app-primary) 3%);
+  border: 1px solid var(--app-line);
+  color: var(--app-muted);
+}
+
+.searchBox input,
+.plainSearch input,
+.quickForm input,
+.quickForm select,
+.settingsForm input,
+.settingsForm select {
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--app-text);
+  font: inherit;
+}
+
+.searchBox input,
+.plainSearch input {
+  width: 100%;
+}
+
+.quickForm {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(130px, 1fr));
+  gap: 12px;
+  align-items: start;
+  align-content: start;
+}
+
+.invoiceQuickForm {
+  grid-template-columns: minmax(130px, 1.15fr) minmax(150px, 1.25fr) minmax(96px, 0.7fr) minmax(108px, 0.75fr) minmax(124px, 0.78fr);
+  grid-auto-rows: 38px;
+}
+
+.quickForm input,
+.quickForm select {
+  min-height: 44px;
+  border: 1px solid var(--app-line);
+  border-radius: 8px;
+  padding: 0 14px;
+  background: var(--app-panel);
+}
+
+.invoiceQuickForm input,
+.invoiceQuickForm select,
+.invoiceQuickForm button {
+  width: 100%;
+  height: 38px;
+  min-height: 38px;
+  max-height: 38px;
+  padding: 0 12px;
+  align-self: start;
+}
+
+.invoiceQuickForm button {
+  line-height: 1;
+}
+
+.invoiceGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 376px;
+  gap: 24px;
+}
+
+.invoiceList {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.invoiceList .toolbar {
+  margin-bottom: 2px;
+}
+
+.invoiceList .invoiceQuickForm {
+  margin-bottom: 2px;
+}
+
+.status {
+  display: inline-flex;
+  border-radius: 5px;
+  padding: 8px 14px;
+  text-transform: capitalize;
+  font-size: 13px;
+}
+
+.status.paid { background: color-mix(in srgb, var(--app-success), transparent 82%); color: var(--app-success); }
+.status.pending { background: color-mix(in srgb, var(--app-warning), transparent 82%); color: var(--app-warning); }
+.status.unpaid { background: color-mix(in srgb, var(--app-danger), transparent 82%); color: var(--app-danger); }
+
+.invoicePreview,
+.walletGrid,
+.paymentsPanel,
+.paymentList {
+  display: grid;
+  gap: 18px;
+}
+
+.invoiceHero {
+  min-height: 116px;
+  border-radius: 8px;
+  padding: 22px;
+  background: var(--app-primary);
+  color: var(--app-panel);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.invoiceHero img {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.invoiceHero span {
+  display: block;
+  margin-top: 4px;
+  opacity: 0.76;
+}
+
+.sideCard {
+  padding: 24px;
+}
+
+.sideCard p {
+  color: var(--app-muted);
+}
+
+.sideCard hr {
+  border: 0;
+  border-top: 1px solid var(--app-line);
+  margin: 18px 0;
+}
+
+.invoiceActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.invoiceBasicInfo {
+  display: grid;
+  gap: 8px;
+}
+
+.invoiceBasicInfo h2 {
+  margin: 0 0 6px;
+}
+
+.invoiceBasicInfo p {
+  margin: 8px 0 0;
+}
+
+.invoiceBasicInfo strong {
+  display: block;
+}
+
+.invoiceBasicInfo .sendButton {
+  width: 100%;
+  margin-top: 14px;
+}
+
+.invoiceActions button {
+  min-height: 46px;
+  border: 1px solid var(--app-line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--app-success), transparent 86%);
+  color: var(--app-success);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.walletGrid {
+  grid-template-columns: 390px minmax(0, 1fr);
+  gap: 70px;
+}
+
+.balanceCard {
+  max-width: 356px;
+  padding: 28px;
+}
+
+.balanceCard > span,
+.balanceCard div span {
+  color: var(--app-muted);
+}
+
+.balanceCard strong {
+  display: block;
+  margin: 8px 0 20px;
+  font-size: 24px;
+}
+
+.balanceCard hr {
+  border: 0;
+  border-top: 1px solid var(--app-line);
+  margin: 20px 0;
+}
+
+.balanceCard div {
+  display: inline-grid;
+  gap: 8px;
+  width: 48%;
+}
+
+.ghostAction {
+  max-width: 356px;
+  width: 100%;
+  background: var(--app-panel);
+  color: var(--app-success);
+  border: 1px solid var(--app-line);
+  margin-top: 28px;
+}
+
+.paymentsPanel {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.paymentItem {
+  display: grid;
+  grid-template-columns: 44px 1fr max-content;
+  gap: 14px;
+  align-items: start;
+  padding: 11px 0;
+}
+
+.paymentItem small {
+  color: var(--app-muted);
+}
+
+.paymentMeta {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.paymentMeta strong,
+.paymentMeta small {
+  display: block;
+  line-height: 1.25;
+}
+
+.paymentMeta strong {
+  overflow-wrap: anywhere;
+}
+
+.settingsCard {
+  max-width: 976px;
+  padding: 42px;
+}
+
+.settingsForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px 40px;
+}
+
+.settingsForm h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.settingsForm label {
+  display: grid;
+  gap: 10px;
+  color: var(--app-secondary);
+  font-weight: 700;
+}
+
+.settingsForm label.wide {
+  grid-column: 1 / -1;
+}
+
+.settingsForm input {
+  min-height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--app-line);
+  padding: 0 24px;
+  background: var(--app-panel);
+}
+
+.settingsForm input:disabled {
+  opacity: 0.68;
+  cursor: not-allowed;
+}
+
+.settingsForm button {
+  width: 190px;
+  min-height: 54px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--app-success);
+  color: white;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.settingsForm button:disabled,
+.quickForm button:disabled,
+.sendButton:disabled,
+.smallButton:disabled,
+.authSubmit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(18, 18, 20, 0.48);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.appModal {
+  width: min(520px, 100%);
+  max-height: min(680px, calc(100dvh - 48px));
+  overflow: auto;
+  border: 1px solid var(--app-line);
+  border-radius: 10px;
+  background: var(--app-panel);
+  color: var(--app-text);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.26);
+  padding: 24px;
+}
+
+.compactModal {
+  width: min(460px, 100%);
+}
+
+.iconButton {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--app-primary), transparent 92%);
+  color: var(--app-text);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.modalStack {
+  display: grid;
+  gap: 12px;
+}
+
+.modalStack p {
+  margin: 0;
+  color: var(--app-secondary);
+  line-height: 1.6;
+}
+
+.modalStack button {
+  min-height: 46px;
+  border: 1px solid var(--app-line);
+  border-radius: 8px;
+  background: var(--app-panel);
+  color: var(--app-text);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.detailList {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px 18px;
+}
+
+.detailList span {
+  color: var(--app-muted);
+}
+
+.detailList strong {
+  overflow-wrap: anywhere;
+}
+
+.modalForm {
+  display: grid;
+  gap: 16px;
+}
+
+.modalForm label {
+  display: grid;
+  gap: 9px;
+  color: var(--app-secondary);
+  font-weight: 800;
+}
+
+.modalForm input,
+.modalForm select {
+  min-height: 48px;
+  border: 1px solid var(--app-line);
+  border-radius: 8px;
+  background: var(--app-panel);
+  color: var(--app-text);
+  padding: 0 14px;
+  font: inherit;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.secondaryButton,
+.dangerButton {
+  min-height: 46px;
+  border-radius: 8px;
+  padding: 0 18px;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.secondaryButton {
+  border: 1px solid var(--app-line);
+  background: var(--app-panel);
+  color: var(--app-text);
+}
+
+.dangerButton {
+  border: 0;
+  background: var(--app-danger);
+  color: #ffffff;
+}
+
+.dangerButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.formError {
+  border: 1px solid color-mix(in srgb, var(--app-danger), transparent 48%);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--app-danger), transparent 88%);
+  color: var(--app-danger);
+  padding: 12px 14px;
+}
+
+.loadingPanel {
+  min-height: 320px;
+  border: 1px solid var(--app-line);
+  border-radius: 12px;
+  background: var(--app-panel);
+  box-shadow: var(--app-shadow);
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  text-align: center;
+  padding: 32px;
+}
+
+.loadingPanel strong {
+  font-size: 18px;
+}
+
+.loadingPanel p {
+  margin: 0;
+  color: var(--app-muted);
+}
+
+.omegaLoader {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+}
+
+.omegaLoader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 4px solid color-mix(in srgb, var(--app-secondary), transparent 82%);
+  border-top-color: var(--app-accent);
+  border-right-color: var(--app-success);
+  animation: omegaSpin 1s linear infinite;
+}
+
+.omegaLoader::after {
+  content: "Ω";
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--app-primary);
+  color: var(--app-panel);
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  font-weight: 900;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--app-panel), transparent 82%);
+}
+
+.omegaLoader span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--app-accent);
+  animation: omegaPulse 1.2s ease-in-out infinite;
+}
+
+.omegaLoader span:nth-child(1) {
+  top: 0;
+}
+
+.omegaLoader span:nth-child(2) {
+  right: 2px;
+  bottom: 14px;
+  animation-delay: 140ms;
+}
+
+.omegaLoader span:nth-child(3) {
+  left: 2px;
+  bottom: 14px;
+  animation-delay: 280ms;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--app-accent), transparent 38%);
+  outline-offset: 2px;
+}
+
+@keyframes omegaSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes omegaPulse {
+  0%, 100% { transform: scale(0.72); opacity: 0.45; }
+  50% { transform: scale(1.18); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .omegaLoader::before,
+  .omegaLoader span {
+    animation: none;
+  }
+}
+
+@media (max-width: 1180px) {
+  .dashboardLayout,
+  .invoiceGrid,
+  .walletGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboardAside {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .magloApp {
+    grid-template-columns: 1fr;
+  }
+
+  .magloSidebar {
+    position: sticky;
+    top: 0;
+    height: auto;
+    z-index: 30;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    overflow: visible;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--app-line);
+    box-shadow: 0 12px 28px rgba(17, 24, 39, 0.08);
+  }
+
+  .magloNav,
+  .sidebarFooter {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .magloNav::-webkit-scrollbar,
+  .sidebarFooter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .magloNav button,
+  .sidebarFooter button {
+    min-width: max-content;
+    min-height: 44px;
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .magloNav button {
+    background: color-mix(in srgb, var(--app-panel), transparent 8%);
+    border: 1px solid var(--app-line);
+  }
+
+  .sidebarFooter {
+    margin-top: 0;
+  }
+
+  .sidebarFooter button {
+    min-height: 40px;
+    font-size: 13px;
+    border: 1px solid color-mix(in srgb, var(--app-line), transparent 12%);
+  }
+
+  .magloMain {
+    padding: 22px 16px 48px;
+  }
+
+  .metricRow,
+  .quickForm,
+  .settingsForm,
+  .dashboardAside {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .magloTop {
+    gap: 16px;
+  }
+
+  .magloTop h1 {
+    font-size: 24px;
+  }
+
+  .chartCard,
+  .tableCard,
+  .settingsCard,
+  .sideCard,
+  .balanceCard {
+    padding: 18px;
+  }
+
+  .metricBox {
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .metricBox strong {
+    font-size: 22px;
+  }
+
+  .chartMock,
+  .chartMock svg {
+    min-height: 190px;
+  }
+
+  .invoiceQuickForm,
+  .quickForm {
+    grid-template-columns: 1fr;
+  }
+
+  .quickForm input,
+  .quickForm select,
+  .quickForm button {
+    width: 100%;
+  }
+
+  .dataTable {
+    overflow: visible;
+  }
+
+  .dataTable table,
+  .dataTable thead,
+  .dataTable tbody,
+  .dataTable tr,
+  .dataTable th,
+  .dataTable td {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .dataTable thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .dataTable tr {
+    border: 1px solid var(--app-line);
+    border-radius: 10px;
+    background: var(--app-panel);
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .dataTable td {
+    min-height: 38px;
+    border-bottom: 0;
+    padding: 9px 0;
+    display: grid;
+    grid-template-columns: minmax(96px, 38%) 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .dataTable td::before {
+    content: attr(data-label);
+    color: var(--app-muted);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .dataTable td:first-child {
+    grid-template-columns: 1fr;
+  }
+
+  .dataTable td:first-child::before {
+    display: none;
+  }
+
+  .invoiceDataTable .entity strong,
+  .invoiceDataTable .entity small {
+    max-width: none;
+    white-space: normal;
+  }
+
+  .invoiceDataTable tr {
+    display: grid;
+    gap: 8px;
+    padding: 12px;
+    background: color-mix(in srgb, var(--app-panel), var(--app-primary) 2%);
+  }
+
+  .invoiceDataTable td {
+    min-height: auto;
+    grid-template-columns: minmax(92px, 32%) minmax(0, 1fr);
+    gap: 12px;
+    padding: 10px;
+    border: 1px solid var(--app-line);
+    border-radius: 8px;
+    background: var(--app-panel);
+    align-items: center;
+  }
+
+  .invoiceDataTable td::before {
+    display: block;
+    letter-spacing: 0;
+    line-height: 1.2;
+    color: var(--app-muted);
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .invoiceDataTable td:first-child::before {
+    display: block;
+  }
+
+  .invoiceDataTable .entity {
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .invoiceDataTable td:first-child {
+    border: 1px solid var(--app-line);
+    padding: 10px;
+    margin-bottom: 0;
+    grid-template-columns: minmax(92px, 32%) minmax(0, 1fr);
+  }
+
+  .invoiceDataTable td:first-child .entity > span {
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .invoiceDataTable td:first-child .entity strong {
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .invoiceDataTable td:first-child .entity small {
+    margin-top: 2px;
+    line-height: 1.25;
+  }
+
+  .invoiceDataTable td[data-label="Date"],
+  .invoiceDataTable td[data-label="Orders/Type"],
+  .invoiceDataTable td[data-label="Amount"],
+  .invoiceDataTable td[data-label="Status"] {
+    display: grid;
+    grid-template-columns: minmax(92px, 32%) minmax(0, 1fr);
+  }
+
+  .invoiceDataTable td[data-label="Date"] small {
+    margin-top: 0;
+  }
+
+  .invoiceDataTable td[data-label="Amount"].moneyCell {
+    font-size: 15px;
+  }
+
+  .invoiceDataTable td[data-label="Status"] .status {
+    width: max-content;
+  }
+
+  .invoiceDataTable td[data-label="Action"] {
+    grid-template-columns: minmax(92px, 32%) minmax(0, 1fr);
+  }
+
+  .rowActions,
+  .transactionActions,
+  .invoiceDataTable .rowActions {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .invoiceDataTable .rowActions {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    gap: 8px;
+  }
+
+  .invoiceDataTable .dotsButton,
+  .invoiceDataTable .miniTextButton {
+    width: 100%;
+    min-height: 40px;
+    border-radius: 8px;
+  }
+
+  .invoiceDataTable .dotsButton {
+    border: 1px solid var(--app-line);
+    background: var(--app-panel);
+    font-size: 18px;
+  }
+
+  .smallButton,
+  .miniTextButton {
+    min-height: 38px;
+  }
+
+  .invoicePreview {
+    grid-template-columns: 1fr;
+  }
+
+  .walletGrid {
+    gap: 28px;
+  }
+
+  .cardStack,
+  .cardStack.large {
+    max-width: none;
+    min-height: 282px;
+  }
+
+  .bankCard {
+    min-height: 188px;
+  }
+
+  .bankCard.floating {
+    top: 100px;
+  }
+
+  .balanceCard,
+  .ghostAction {
+    max-width: none;
+  }
+
+  .paymentItem {
+    grid-template-columns: 40px 1fr;
+  }
+
+  .paymentItem b {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .appModal {
+    width: min(100%, 520px);
+    max-height: calc(100dvh - 28px);
+    padding: 18px;
+  }
+}
+
+@media (max-width: 620px) {
+  .magloTop,
+  .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .topActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .profileChip strong {
+    display: none;
+  }
+
+  .magloSidebar {
+    align-items: stretch;
+  }
+
+  .magloBrand {
+    min-width: 100%;
+    justify-content: flex-start;
+  }
+
+  .magloNav,
+  .sidebarFooter {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .topActions {
+    gap: 10px;
+  }
+
+  .profileChip {
+    padding-right: 8px;
+  }
+
+  .searchBox,
+  .plainSearch {
+    width: 100%;
+  }
+
+  .settingsCard {
+    padding: 18px;
+  }
+
+  .settingsForm button {
+    width: 100%;
+  }
+
+  .modalActions {
+    flex-direction: column-reverse;
+  }
+
+  .modalActions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .magloMain {
+    padding: 18px 12px 40px;
+  }
+
+  .magloNav button,
+  .sidebarFooter button {
+    padding: 0 12px;
+  }
+
+  .metricBox {
+    gap: 12px;
+  }
+
+  .bankCard {
+    padding: 20px;
+  }
+
+  .bankCard b {
+    font-size: 17px;
+  }
+
+  .invoiceActions {
+    grid-template-columns: 1fr;
+  }
+
+  .invoiceDataTable td,
+  .invoiceDataTable td:first-child,
+  .invoiceDataTable td[data-label="Date"],
+  .invoiceDataTable td[data-label="Orders/Type"],
+  .invoiceDataTable td[data-label="Amount"],
+  .invoiceDataTable td[data-label="Status"],
+  .invoiceDataTable td[data-label="Action"] {
+    grid-template-columns: minmax(76px, 30%) minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .invoiceDataTable .rowActions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .magloApp {
+    display: block;
+    padding-bottom: 88px;
+  }
+
+  .magloSidebar {
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    top: auto;
+    height: auto;
+    z-index: 80;
+    padding: 8px;
+    border: 1px solid color-mix(in srgb, var(--app-line), transparent 22%);
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--app-panel), transparent 18%);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 18px 48px rgba(17, 24, 39, 0.18);
+  }
+
+  .magloBrand,
+  .sidebarFooter {
+    display: none;
+  }
+
+  .magloNav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 4px;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .magloNav button {
+    min-width: 0;
+    width: 100%;
+    min-height: 58px;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--app-secondary);
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 3px;
+    padding: 6px 2px;
+    font-size: 10px;
+    line-height: 1.05;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .magloNav button .material-symbols-outlined {
+    font-size: 22px;
+  }
+
+  .magloNav button.active {
+    background: color-mix(in srgb, var(--app-accent), transparent 18%);
+    color: #171a20;
+  }
+
+  .magloMain {
+    padding-bottom: 112px;
+  }
+}
+
+@media (max-width: 420px) {
+  .magloSidebar {
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    padding: 6px;
+    border-radius: 14px;
+  }
+
+  .magloNav {
+    gap: 2px;
+  }
+
+  .magloNav button {
+    min-height: 54px;
+    font-size: 9px;
+    padding-inline: 1px;
+  }
+
+  .magloNav button .material-symbols-outlined {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 760px) {
+  .invoiceDataTable table,
+  .invoiceDataTable tbody,
+  .invoiceDataTable tr {
+    width: 100%;
+  }
+
+  .invoiceDataTable tr {
+    display: grid !important;
+    grid-template-columns: 1fr;
+  }
+
+  .invoiceDataTable td,
+  .invoiceDataTable td:first-child,
+  .invoiceDataTable td[data-label="Date"],
+  .invoiceDataTable td[data-label="Orders/Type"],
+  .invoiceDataTable td[data-label="Amount"],
+  .invoiceDataTable td[data-label="Status"],
+  .invoiceDataTable td[data-label="Action"] {
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    min-width: 0;
+  }
+
+  .invoiceDataTable td::before {
+    flex: 0 0 104px;
+    white-space: nowrap;
+  }
+
+  .invoiceDataTable td > :not(:first-child),
+  .invoiceDataTable td > .entity,
+  .invoiceDataTable td > .status,
+  .invoiceDataTable td > .rowActions {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .invoiceDataTable td[data-label="Date"],
+  .invoiceDataTable td[data-label="Orders/Type"],
+  .invoiceDataTable td[data-label="Amount"],
+  .invoiceDataTable td[data-label="Status"] {
+    white-space: nowrap;
+  }
+
+  .invoiceDataTable td[data-label="Date"] small {
+    display: inline;
+    margin-left: 6px;
+  }
+
+  .invoiceDataTable td[data-label="Action"] {
+    align-items: flex-start;
+  }
+
+  .invoiceDataTable td[data-label="Action"]::before {
+    padding-top: 11px;
+  }
+
+  .invoiceDataTable .rowActions {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 430px) {
+  .invoiceDataTable td::before {
+    flex-basis: 92px;
+  }
+
+  .invoiceDataTable .rowActions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

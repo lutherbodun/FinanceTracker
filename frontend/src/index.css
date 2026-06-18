@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --app-bg: #f7f7f6;
+  --app-panel: #ffffff;
+  --app-sidebar: #efefee;
+  --app-text: #1c2230;
+  --app-muted: #8b96a8;
+  --app-line: #e8e8e6;
+  --app-primary: #3f4140;
+  --app-secondary: #707472;
+  --app-accent: #8a8f7a;
+  --app-accent-2: #6f7468;
+  --app-success: #607064;
+  --app-danger: #806060;
+  --app-warning: #81715f;
+  --app-shadow: 0 18px 48px rgba(34, 40, 49, 0.08);
+
+  --bg0: var(--app-bg);
+  --bg1: #ececea;
+  --card: var(--app-panel);
+  --cardBorder: var(--app-line);
+  --text: var(--app-text);
+  --muted: var(--app-muted);
+  --inputBg: var(--app-panel);
+  --inputBorder: var(--app-line);
+  --accent: var(--app-primary);
+  --accent2: var(--app-accent);
+  --dangerBg: rgba(138, 82, 82, 0.1);
+  --dangerBorder: rgba(138, 82, 82, 0.32);
+  --shadow: rgba(34, 40, 49, 0.12);
+}
+
+:root[data-theme='dark'] {
+  --app-bg: #191729;
+  --app-panel: #211f34;
+  --app-sidebar: #171526;
+  --app-text: #f7f4fb;
+  --app-muted: #8e899f;
+  --app-line: #302d45;
+  --app-primary: #dad7df;
+  --app-secondary: #a9a3b5;
+  --app-accent: #9a9f8b;
+  --app-accent-2: #777c70;
+  --app-success: #6f806f;
+  --app-danger: #886969;
+  --app-warning: #8a7b68;
+  --app-shadow: 0 20px 54px rgba(0, 0, 0, 0.22);
+
+  --bg0: var(--app-bg);
+  --bg1: #211f34;
+  --card: var(--app-panel);
+  --cardBorder: var(--app-line);
+  --text: var(--app-text);
+  --muted: var(--app-muted);
+  --inputBg: var(--app-panel);
+  --inputBorder: var(--app-line);
+  --accent: var(--app-primary);
+  --accent2: var(--app-accent);
+  --dangerBg: rgba(138, 83, 88, 0.14);
+  --dangerBorder: rgba(138, 83, 88, 0.36);
+  --shadow: rgba(0, 0, 0, 0.28);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Sora, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

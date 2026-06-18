@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght@500&display=swap');
+
+.authSplit {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  background: var(--app-bg, #f7f7f6);
+  color: var(--app-text, #1c2230);
+  font-family: Sora, system-ui, sans-serif;
+}
+
+.authPane {
+  padding: 40px clamp(28px, 9vw, 136px);
+  display: grid;
+  align-content: start;
+}
+
+.authBrand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.authBrand img {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.magloAuthForm {
+  width: min(404px, 100%);
+  display: grid;
+  gap: 18px;
+  margin-top: clamp(80px, 16vh, 156px);
+}
+
+.magloAuthForm h1 {
+  margin: 0 0 8px;
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.magloAuthForm p {
+  margin: 0;
+  color: var(--app-muted, #8b96a8);
+}
+
+.magloAuthForm label {
+  display: grid;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.magloAuthForm input {
+  min-height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--app-line, #e8e8e6);
+  background: var(--app-panel, #ffffff);
+  color: var(--app-text, #1c2230);
+  padding: 0 20px;
+  font: inherit;
+  outline: none;
+}
+
+.passwordShell {
+  min-height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--app-line, #e8e8e6);
+  background: var(--app-panel, #ffffff);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.passwordShell input {
+  min-height: 46px;
+  flex: 1;
+  border: 0;
+  border-radius: 0;
+}
+
+.passwordShell button {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background: transparent;
+  color: var(--app-muted, #8b96a8);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.passwordShell:focus-within {
+  border-color: var(--app-accent-2, #6f7468);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--app-accent), transparent 70%);
+}
+
+.passwordShell.mismatch {
+  border-color: var(--app-danger, #806060);
+}
+
+.passwordHint {
+  margin-top: -4px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.passwordHint.match {
+  color: var(--app-success, #607064);
+}
+
+.passwordHint.mismatch {
+  color: var(--app-danger, #806060);
+}
+
+.magloAuthForm input:focus {
+  border-color: var(--app-accent-2, #8e9650);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--app-accent), transparent 70%);
+}
+
+.passwordShell input:focus {
+  box-shadow: none;
+}
+
+.authOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.authOptions button {
+  border: 0;
+  background: transparent;
+  color: var(--app-text, #1c2230);
+  font: inherit;
+  cursor: pointer;
+}
+
+.checkLine {
+  display: inline-flex !important;
+  grid-template-columns: none !important;
+  align-items: center;
+  gap: 8px !important;
+  font-weight: 600 !important;
+}
+
+.checkLine input {
+  width: 16px;
+  min-height: 16px;
+  accent-color: var(--app-accent);
+}
+
+.authSubmit,
+.googleButton {
+  min-height: 48px;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.authSubmit {
+  border: 0;
+  background: var(--app-accent, #b8c342);
+  color: #171a20;
+}
+
+.authSubmit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.googleButton {
+  border: 1px solid var(--app-line, #e8e8e6);
+  background: var(--app-panel, #ffffff);
+  color: var(--app-secondary, #777a7c);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.googleButton span {
+  color: #3c4043;
+  font-weight: 900;
+}
+
+.authLink {
+  text-align: center;
+  font-size: 14px;
+}
+
+.authLink a {
+  color: var(--app-text, #1c2230);
+  text-decoration: none;
+  border-bottom: 3px solid var(--app-accent, #b8c342);
+  padding-bottom: 10px;
+}
+
+.authError {
+  border: 1px solid color-mix(in srgb, var(--app-danger), transparent 50%);
+  background: color-mix(in srgb, var(--app-danger), transparent 88%);
+  color: var(--app-danger);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.authMessage {
+  border: 1px solid color-mix(in srgb, var(--app-success), transparent 55%);
+  background: color-mix(in srgb, var(--app-success), transparent 88%);
+  color: var(--app-success);
+  border-radius: 8px;
+  padding: 12px 14px;
+  overflow-wrap: anywhere;
+}
+
+.verifyForm {
+  margin-top: clamp(96px, 18vh, 170px);
+}
+
+.devVerifyLink {
+  min-height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--app-line, #e8e8e6);
+  background: var(--app-panel, #ffffff);
+  color: var(--app-text, #1c2230);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 800;
+  padding: 0 18px;
+}
+
+.authArt {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 18%, rgba(255, 255, 255, 0.68), transparent 28%),
+    linear-gradient(145deg, #d8d9dc, #b8bbb8 56%, #ece7df);
+  display: grid;
+  place-items: center;
+  padding: clamp(28px, 6vw, 72px);
+}
+
+.authVisual {
+  position: relative;
+  width: min(390px, 100%);
+  min-height: 420px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 28px 90px rgba(30, 32, 34, 0.22);
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  padding: 34px;
+  color: #20242c;
+}
+
+.authVisual img {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+}
+
+.authVisual span {
+  display: block;
+  color: #636a71;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.authVisual strong {
+  display: block;
+  margin-top: 6px;
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1;
+}
+
+.visualLine {
+  height: 128px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.34);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: end;
+  gap: 12px;
+  padding: 18px;
+}
+
+.visualLine i {
+  display: block;
+  border-radius: 999px 999px 8px 8px;
+  background: #607064;
+}
+
+.visualLine i:nth-child(1) { height: 48%; }
+.visualLine i:nth-child(2) { height: 72%; background: #8a8f7a; }
+.visualLine i:nth-child(3) { height: 38%; background: #806060; }
+.visualLine i:nth-child(4) { height: 88%; background: #3f4140; }
+
+.authVisual small {
+  max-width: 270px;
+  color: #4b5358;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+:root[data-theme='dark'] .authSplit {
+  background: var(--app-bg);
+}
+
+:root[data-theme='dark'] .authArt {
+  background: #d8d9dc;
+}
+
+@media (max-width: 900px) {
+  .authSplit {
+    grid-template-columns: 1fr;
+  }
+
+  .authArt {
+    display: none;
+  }
+
+  .magloAuthForm {
+    margin-top: 90px;
+  }
+}
+
+@media (max-width: 620px) {
+  .authPane {
+    padding: 28px 18px;
+  }
+
+  .authBrand {
+    font-size: 20px;
+  }
+
+  .magloAuthForm {
+    width: 100%;
+    margin-top: 64px;
+    gap: 16px;
+  }
+
+  .magloAuthForm h1 {
+    font-size: 28px;
+  }
+
+  .authOptions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  .authPane {
+    padding-inline: 14px;
+  }
+
+  .magloAuthForm h1 {
+    font-size: 25px;
+  }
+
+  .magloAuthForm input,
+  .passwordShell,
+  .authSubmit {
+    min-height: 46px;
+  }
+}
