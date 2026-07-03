@@ -16,7 +16,6 @@ const __dirname = path.dirname(__filename);
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
-connectDB();
 
 
 const app = express();
@@ -81,6 +80,8 @@ app.use(errorHandler);
 
 
 const PORT = process.env.PORT || 5000;
+await connectDB();
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
