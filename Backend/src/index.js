@@ -20,16 +20,33 @@ connectDB();
 
 
 const app = express();
+const normalizeOrigin = (origin) => origin?.replace(/\/$/, "");
+
 const allowedOrigins = [
     process.env.CLIENT_URL,
     process.env.FRONTEND_URL,
     "http://localhost:3001",
     "http://localhost:3101",
-].filter(Boolean);
+].filter(Boolean).map(normalizeOrigin);
+
+const isVercelOrigin = (origin) => {
+    try {
+        return new URL(origin).hostname.endsWith(".vercel.app");
+    } catch {
+        return false;
+    }
+};
 
 const corsOptions = {
     origin(origin, callback) {
-        if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+        const normalizedOrigin = normalizeOrigin(origin);
+
+        if (
+            !origin ||
+            allowedOrigins.length === 0 ||
+            allowedOrigins.includes(normalizedOrigin) ||
+            isVercelOrigin(origin)
+        ) {
             return callback(null, true);
         }
 
