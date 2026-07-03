@@ -20,12 +20,37 @@ connectDB();
 
 
 const app = express();
+const allowedOrigins = [
+    process.env.CLIENT_URL,
+    process.env.FRONTEND_URL,
+    "http://localhost:3001",
+    "http://localhost:3101",
+].filter(Boolean);
+
+const corsOptions = {
+    origin(origin, callback) {
+        if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+            return callback(null, true);
+        }
+
+        return callback(new Error(`CORS blocked request from ${origin}`));
+    },
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
+app.options(/.*/, cors(corsOptions));
 app.use(express.json());
-app.use(cors());
 
 
 app.get('/' , (req, res) => {
     res.send("Financial Tracker API is running");
+});
+
+app.get("/api/health", (req, res) => {
+    res.json({ status: "ok", service: "Financial Tracker API" });
 });
 
 app.use("/api/auth", authRoutes);
