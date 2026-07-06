@@ -64,7 +64,7 @@ function Register() {
                         <p>Create your workspace and start tracking your money.</p>
                     </div>
                     {error ? <div className="authError" role="alert">{error}</div> : null}
-                    <label>Full Name<input value={name} onChange={(event) => setName(event.target.value)} placeholder="Mahfuzul Nabil" required /></label>
+                    <label>Full Name<input value={name} onChange={(event) => setName(event.target.value)} placeholder="Your Full Name" required /></label>
                     <label>Email<input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="example@gmail.com" required /></label>
                     <label>
                         Password
